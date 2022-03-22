@@ -9,6 +9,8 @@ namespace Aternos\Codex\Analysis;
  */
 class Analysis implements AnalysisInterface
 {
+    protected array $result;
+
     /**
      * @var InsightInterface[]
      */

@@ -9,6 +9,8 @@ namespace Aternos\Codex\Analysis;
  */
 abstract class Problem extends Insight implements ProblemInterface
 {
+    protected array $result;
+
     /**
      * @var array
      */
