@@ -14,7 +14,7 @@ abstract class Detector implements DetectorInterface
     /**
      * @var LogFileInterface
      */
-    protected $logFile;
+    protected LogFileInterface $logFile;
 
     /**
      * Set the log file
@@ -22,7 +22,7 @@ abstract class Detector implements DetectorInterface
      * @param LogFileInterface $logFile
      * @return $this
      */
-    public function setLogFile(LogFileInterface $logFile)
+    public function setLogFile(LogFileInterface $logFile): Detector
     {
         $this->logFile = $logFile;
         return $this;

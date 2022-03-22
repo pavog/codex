@@ -17,7 +17,7 @@ interface DetectorInterface
      * @param LogFileInterface $logFile
      * @return $this
      */
-    public function setLogFile(LogFileInterface $logFile);
+    public function setLogFile(LogFileInterface $logFile): DetectorInterface;
 
     /**
      * Detect if the log matches

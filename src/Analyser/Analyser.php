@@ -14,7 +14,7 @@ abstract class Analyser implements AnalyserInterface
     /**
      * @var AnalysableLogInterface
      */
-    protected $log;
+    protected AnalysableLogInterface $log;
 
     /**
      * Set the log
@@ -22,7 +22,7 @@ abstract class Analyser implements AnalyserInterface
      * @param AnalysableLogInterface $log
      * @return $this
      */
-    public function setLog(AnalysableLogInterface $log)
+    public function setLog(AnalysableLogInterface $log): AnalyserInterface
     {
         $this->log = $log;
         return $this;

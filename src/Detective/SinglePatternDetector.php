@@ -20,10 +20,6 @@ class SinglePatternDetector extends PatternDetector
      */
     public function detect()
     {
-        if (preg_match($this->pattern, $this->getLogContent()) === 1) {
-            return true;
-        } else {
-            return false;
-        }
+        return preg_match($this->pattern, $this->getLogContent()) === 1;
     }
 }

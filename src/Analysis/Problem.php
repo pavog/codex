@@ -12,12 +12,12 @@ abstract class Problem extends Insight implements ProblemInterface
     /**
      * @var array
      */
-    protected $solutions = [];
+    protected array $solutions = [];
 
     /**
      * @var int
      */
-    protected $iterator = 0;
+    protected int $iterator = 0;
 
     /**
      * Set all solutions at once in an array replacing the current solutions
@@ -25,8 +25,10 @@ abstract class Problem extends Insight implements ProblemInterface
      * @param array $solutions
      * @return $this
      */
-    public function setSolutions(array $solutions = [])
+    public function setSolutions(array $solutions = []): Problem
     {
+        // TODO Maybe we should add a type check for SolutionInterface here and throw an InvalidArgumentException
+        // if it fails. I mean it's that what we do in most other classes.
         $this->solutions = $solutions;
         return $this;
     }
@@ -37,7 +39,7 @@ abstract class Problem extends Insight implements ProblemInterface
      * @param SolutionInterface $solution
      * @return $this
      */
-    public function addSolution(SolutionInterface $solution)
+    public function addSolution(SolutionInterface $solution): Problem
     {
         $this->solutions[] = $solution;
         return $this;
@@ -114,7 +116,7 @@ abstract class Problem extends Insight implements ProblemInterface
     }
 
     /**
-     * Whether a offset exists
+     * Whether an offset exists
      *
      * @param mixed $offset
      * @return bool

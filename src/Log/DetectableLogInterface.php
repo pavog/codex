@@ -14,5 +14,5 @@ interface DetectableLogInterface extends LogInterface
      *
      * @return array
      */
-    public static function getDetectors();
+    public static function getDetectors(): array;
 }

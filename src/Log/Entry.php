@@ -12,7 +12,7 @@ class Entry implements EntryInterface
     /**
      * @var LineInterface[]
      */
-    protected $lines = [];
+    protected array $lines = [];
 
     /**
      * @var mixed
@@ -22,7 +22,7 @@ class Entry implements EntryInterface
     /**
      * @var int
      */
-    protected $time;
+    protected int $time;
 
     /**
      * Set all lines at once in an array replacing the current lines
@@ -30,7 +30,7 @@ class Entry implements EntryInterface
      * @param LineInterface[] $lines
      * @return $this
      */
-    public function setLines(array $lines = [])
+    public function setLines(array $lines = []): Entry
     {
         $this->lines = $lines;
         return $this;
@@ -42,7 +42,7 @@ class Entry implements EntryInterface
      * @param LineInterface $line
      * @return $this
      */
-    public function addLine(LineInterface $line)
+    public function addLine(LineInterface $line): Entry
     {
         $this->lines[] = $line;
         return $this;
@@ -64,7 +64,7 @@ class Entry implements EntryInterface
      * @param $level
      * @return $this
      */
-    public function setLevel($level)
+    public function setLevel($level): Entry
     {
         $this->level = $level;
         return $this;
@@ -86,7 +86,7 @@ class Entry implements EntryInterface
      * @param int $time
      * @return $this
      */
-    public function setTime(int $time)
+    public function setTime(int $time): Entry
     {
         $this->time = $time;
         return $this;
@@ -97,7 +97,7 @@ class Entry implements EntryInterface
      *
      * @return int
      */
-    public function getTime()
+    public function getTime(): int
     {
         return $this->time;
     }
@@ -105,7 +105,7 @@ class Entry implements EntryInterface
     /**
      * @var int
      */
-    protected $iterator = 0;
+    protected int $iterator = 0;
 
     /**
      * Return the current element
@@ -168,7 +168,7 @@ class Entry implements EntryInterface
     }
 
     /**
-     * Whether a offset exists
+     * Whether an offset exists
      *
      * @param mixed $offset
      * @return bool

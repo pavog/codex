@@ -14,14 +14,14 @@ use Aternos\Codex\Log\LogInterface;
 abstract class Printer implements PrinterInterface
 {
     /**
-     * @var LogInterface
+     * @var LogInterface|null
      */
-    protected $log;
+    protected ?LogInterface $log;
 
     /**
-     * @var EntryInterface
+     * @var EntryInterface|null
      */
-    protected $entry;
+    protected ?EntryInterface $entry = null;
 
     /**
      * Set the log
@@ -29,7 +29,7 @@ abstract class Printer implements PrinterInterface
      * @param LogInterface $log
      * @return $this
      */
-    public function setLog(LogInterface $log)
+    public function setLog(LogInterface $log): Printer
     {
         $this->log = $log;
         return $this;
@@ -41,7 +41,7 @@ abstract class Printer implements PrinterInterface
      * @param EntryInterface $entry
      * @return $this
      */
-    public function setEntry(EntryInterface $entry)
+    public function setEntry(EntryInterface $entry): Printer
     {
         $this->entry = $entry;
         return $this;
@@ -56,9 +56,9 @@ abstract class Printer implements PrinterInterface
     {
         if ($this->entry) {
             return $this->printEntry($this->entry);
-        } else {
-            return $this->printLog($this->log);
         }
+
+        return $this->printLog($this->log);
     }
 
     /**
@@ -67,7 +67,7 @@ abstract class Printer implements PrinterInterface
      * @param LogInterface $log
      * @return string
      */
-    protected function printLog(LogInterface $log)
+    protected function printLog(LogInterface $log): string
     {
         $return = "";
         foreach ($log as $entry) {
@@ -83,7 +83,7 @@ abstract class Printer implements PrinterInterface
      * @param EntryInterface $entry
      * @return string
      */
-    protected function printEntry(EntryInterface $entry)
+    protected function printEntry(EntryInterface $entry): string
     {
         $return = "";
         foreach ($entry as $line) {
@@ -99,5 +99,5 @@ abstract class Printer implements PrinterInterface
      * @param LineInterface $line
      * @return string
      */
-    abstract protected function printLine(LineInterface $line);
+    abstract protected function printLine(LineInterface $line): string;
 }

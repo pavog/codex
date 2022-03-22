@@ -15,14 +15,14 @@ use Aternos\Codex\Log\LogInterface;
 class Detective implements DetectiveInterface
 {
     /**
-     * @var array
+     * @var DetectableLogInterface[]
      */
-    protected $possibleLogClasses = [];
+    protected array $possibleLogClasses = [];
 
     /**
      * @var LogFileInterface
      */
-    protected $logFile;
+    protected LogFileInterface $logFile;
 
     /**
      * Set possible log classes
@@ -32,7 +32,7 @@ class Detective implements DetectiveInterface
      * @param array $logClasses
      * @return $this
      */
-    public function setPossibleLogClasses(array $logClasses)
+    public function setPossibleLogClasses(array $logClasses): Detective
     {
         $this->possibleLogClasses = [];
         foreach ($logClasses as $logClass) {
@@ -50,7 +50,7 @@ class Detective implements DetectiveInterface
      * @param string $logClass
      * @return $this
      */
-    public function addPossibleLogClass(string $logClass)
+    public function addPossibleLogClass(string $logClass): Detective
     {
         if (!is_subclass_of($logClass, DetectableLogInterface::class)) {
             throw new \InvalidArgumentException("Class " . $logClass . " does not implement " . DetectableLogInterface::class . ".");
@@ -66,7 +66,7 @@ class Detective implements DetectiveInterface
      * @param LogFileInterface $logFile
      * @return $this
      */
-    public function setLogFile(LogFileInterface $logFile)
+    public function setLogFile(LogFileInterface $logFile): Detective
     {
         $this->logFile = $logFile;
         return $this;
@@ -77,11 +77,10 @@ class Detective implements DetectiveInterface
      *
      * @return LogInterface
      */
-    public function detect()
+    public function detect(): LogInterface
     {
         $detectionResults = [];
         foreach ($this->possibleLogClasses as $possibleLogClass) {
-            /** @var DetectableLogInterface $possibleLogClass */
             $detectors = $possibleLogClass::getDetectors();
             foreach ($detectors as $detector) {
                 if (!$detector instanceof DetectorInterface) {
@@ -97,7 +96,7 @@ class Detective implements DetectiveInterface
                     continue;
                 }
                 if (!is_numeric($result) || $result < 0 || $result > 1) {
-                    throw new \InvalidArgumentException("Detector " . get_class($detector) . " returned " . var_export($result));
+                    throw new \InvalidArgumentException("Detector " . get_class($detector) . " returned " . var_export($result, true));
                 }
                 $detectionResults[] = ["class" => $possibleLogClass, "result" => $result];
             }

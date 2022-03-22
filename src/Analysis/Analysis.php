@@ -12,12 +12,12 @@ class Analysis implements AnalysisInterface
     /**
      * @var InsightInterface[]
      */
-    protected $insights = [];
+    protected array $insights = [];
 
     /**
      * @var int
      */
-    protected $iterator = 0;
+    protected int $iterator = 0;
 
     /**
      * Set all insights at once in an array replacing the current insights
@@ -25,7 +25,7 @@ class Analysis implements AnalysisInterface
      * @param InsightInterface[] $insights
      * @return $this
      */
-    public function setInsights(array $insights = [])
+    public function setInsights(array $insights = []): AnalysisInterface
     {
         $this->insights = $insights;
         return $this;
@@ -37,7 +37,7 @@ class Analysis implements AnalysisInterface
      * @param InsightInterface $insight
      * @return $this
      */
-    public function addInsight(InsightInterface $insight)
+    public function addInsight(InsightInterface $insight): AnalysisInterface
     {
         foreach ($this as $existingInsight) {
             if (get_class($insight) === get_class($existingInsight) && $existingInsight->isEqual($insight)) {
@@ -66,7 +66,7 @@ class Analysis implements AnalysisInterface
      * @param string $extendedFrom
      * @return array
      */
-    public function getFilteredInsights($extendedFrom)
+    public function getFilteredInsights(string $extendedFrom): array
     {
         $returnInsights = [];
         foreach ($this->getInsights() as $insight) {

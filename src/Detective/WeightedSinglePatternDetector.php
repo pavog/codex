@@ -12,7 +12,7 @@ class WeightedSinglePatternDetector extends SinglePatternDetector
     /**
      * @var float
      */
-    protected $weight;
+    protected float $weight;
 
     /**
      * Set the weight that will be returned if the pattern matches
@@ -20,7 +20,7 @@ class WeightedSinglePatternDetector extends SinglePatternDetector
      * @param float $weight
      * @return $this
      */
-    public function setWeight(float $weight)
+    public function setWeight(float $weight): WeightedSinglePatternDetector
     {
         $this->weight = $weight;
         return $this;
@@ -39,8 +39,8 @@ class WeightedSinglePatternDetector extends SinglePatternDetector
     {
         if (parent::detect()) {
             return $this->weight;
-        } else {
-            return false;
         }
+
+        return false;
     }
 }

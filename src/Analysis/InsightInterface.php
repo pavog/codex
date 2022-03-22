@@ -26,7 +26,7 @@ interface InsightInterface
      * @param EntryInterface $entry
      * @return $this
      */
-    public function setEntry(EntryInterface $entry);
+    public function setEntry(EntryInterface $entry): InsightInterface;
 
     /**
      * Get the related entry
@@ -41,19 +41,19 @@ interface InsightInterface
      * @param static $insight
      * @return bool
      */
-    public function isEqual($insight): bool;
+    public function isEqual(InsightInterface $insight): bool;
 
     /**
      * Increase the counter for this insight
      *
      * @return $this
      */
-    public function increaseCounter();
+    public function increaseCounter(): InsightInterface;
 
     /**
      * Get the current counter value
      *
      * @return int
      */
-    public function getCounterValue();
+    public function getCounterValue(): int;
 }

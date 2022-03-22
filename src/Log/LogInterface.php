@@ -17,7 +17,7 @@ interface LogInterface extends \Iterator, \Countable, \ArrayAccess
      *
      * @return ParserInterface
      */
-    public static function getDefaultParser();
+    public static function getDefaultParser(): ParserInterface;
 
     /**
      * Set the log file
@@ -25,7 +25,7 @@ interface LogInterface extends \Iterator, \Countable, \ArrayAccess
      * @param LogFileInterface $logFile
      * @return $this
      */
-    public function setLogFile(LogFileInterface $logFile);
+    public function setLogFile(LogFileInterface $logFile): LogInterface;
 
     /**
      * Get the log file
@@ -44,7 +44,7 @@ interface LogInterface extends \Iterator, \Countable, \ArrayAccess
      * @param ParserInterface|null $parser
      * @return $this
      */
-    public function parse(ParserInterface $parser = null);
+    public function parse(ParserInterface $parser = null): LogInterface;
 
     /**
      * Set all entries of the log at once replacing the current entries
@@ -52,7 +52,7 @@ interface LogInterface extends \Iterator, \Countable, \ArrayAccess
      * @param EntryInterface[] $entries
      * @return $this
      */
-    public function setEntries(array $entries = []);
+    public function setEntries(array $entries = []): LogInterface;
 
     /**
      * Add an entry to the log
@@ -60,7 +60,7 @@ interface LogInterface extends \Iterator, \Countable, \ArrayAccess
      * @param EntryInterface $entry
      * @return $this
      */
-    public function addEntry(EntryInterface $entry);
+    public function addEntry(EntryInterface $entry): LogInterface;
 
     /**
      * Get all entries of the log

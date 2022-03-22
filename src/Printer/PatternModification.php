@@ -10,14 +10,14 @@ namespace Aternos\Codex\Printer;
 class PatternModification extends Modification
 {
     /**
-     * @var string
+     * @var string|null
      */
-    protected $pattern;
+    protected ?string $pattern;
 
     /**
-     * @var string
+     * @var string|null
      */
-    protected $replacement;
+    protected ?string $replacement;
 
     /**
      * Set the pattern
@@ -27,7 +27,7 @@ class PatternModification extends Modification
      * @param string $pattern
      * @return $this
      */
-    public function setPattern(string $pattern)
+    public function setPattern(string $pattern): PatternModification
     {
         $this->pattern = $pattern;
         return $this;
@@ -41,7 +41,7 @@ class PatternModification extends Modification
      * @param string $replacement
      * @return $this
      */
-    public function setReplacement(string $replacement)
+    public function setReplacement(string $replacement): PatternModification
     {
         $this->replacement = $replacement;
         return $this;

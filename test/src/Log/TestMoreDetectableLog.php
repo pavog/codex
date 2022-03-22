@@ -16,7 +16,7 @@ class TestMoreDetectableLog extends Log implements DetectableLogInterface
      *
      * @return array
      */
-    public static function getDetectors()
+    public static function getDetectors(): array
     {
         return [(new LinePatternDetector())->setPattern('/This/')];
     }

@@ -18,7 +18,7 @@ class Log implements LogInterface
      *
      * @return ParserInterface
      */
-    public static function getDefaultParser()
+    public static function getDefaultParser(): ParserInterface
     {
         return new DefaultParser();
     }
@@ -26,17 +26,17 @@ class Log implements LogInterface
     /**
      * @var EntryInterface[]
      */
-    protected $entries = [];
+    protected array $entries = [];
 
     /**
      * @var int
      */
-    protected $iterator = 0;
+    protected int $iterator = 0;
 
     /**
      * @var LogFileInterface $logFile
      */
-    protected $logFile;
+    protected LogFileInterface $logFile;
 
     /**
      * Set the log file
@@ -44,7 +44,7 @@ class Log implements LogInterface
      * @param LogFileInterface $logFile
      * @return $this
      */
-    public function setLogFile(LogFileInterface $logFile)
+    public function setLogFile(LogFileInterface $logFile): Log
     {
         $this->logFile = $logFile;
         return $this;
@@ -70,7 +70,7 @@ class Log implements LogInterface
      * @param ParserInterface|null $parser
      * @return $this
      */
-    public function parse(ParserInterface $parser = null)
+    public function parse(ParserInterface $parser = null): Log
     {
         if ($parser === null) {
             $parser = static::getDefaultParser();
@@ -87,7 +87,7 @@ class Log implements LogInterface
      * @param EntryInterface[] $entries
      * @return $this
      */
-    public function setEntries(array $entries = [])
+    public function setEntries(array $entries = []): Log
     {
         $this->entries = $entries;
         return $this;
@@ -99,7 +99,7 @@ class Log implements LogInterface
      * @param EntryInterface $entry
      * @return $this
      */
-    public function addEntry(EntryInterface $entry)
+    public function addEntry(EntryInterface $entry): Log
     {
         $this->entries[] = $entry;
         return $this;
@@ -176,7 +176,7 @@ class Log implements LogInterface
     }
 
     /**
-     * Whether a offset exists
+     * Whether an offset exists
      *
      * @param mixed $offset
      * @return bool
@@ -201,7 +201,7 @@ class Log implements LogInterface
      * Offset to set
      *
      * @param $offset
-     * @param Log $value
+     * @param EntryInterface $value
      */
     public function offsetSet($offset, $value): void
     {

@@ -20,7 +20,7 @@ interface DetectiveInterface
      * @param array $logClasses
      * @return $this
      */
-    public function setPossibleLogClasses(array $logClasses);
+    public function setPossibleLogClasses(array $logClasses): DetectiveInterface;
 
     /**
      * Add a possible insight class
@@ -30,7 +30,7 @@ interface DetectiveInterface
      * @param string $logClass
      * @return $this
      */
-    public function addPossibleLogClass(string $logClass);
+    public function addPossibleLogClass(string $logClass): DetectiveInterface;
 
     /**
      * Set the log file
@@ -38,12 +38,12 @@ interface DetectiveInterface
      * @param LogFileInterface $logFile
      * @return $this
      */
-    public function setLogFile(LogFileInterface $logFile);
+    public function setLogFile(LogFileInterface $logFile): DetectiveInterface;
 
     /**
      * Detect a log type out of possible classes by using detector
      *
      * @return LogInterface
      */
-    public function detect();
+    public function detect(): LogInterface;
 }

@@ -15,33 +15,33 @@ class PatternParser extends Parser
     /**
      * Match constants, see setMatches()
      */
-    const TIME = "time";
-    const LEVEL = "level";
+    public const TIME = "time";
+    public const LEVEL = "level";
 
     /**
      * @var string
      */
-    protected $entryClass = Entry::class;
+    protected string $entryClass = Entry::class;
 
     /**
      * @var string
      */
-    protected $pattern;
+    protected string $pattern;
 
     /**
      * @var array
      */
-    protected $matches = [];
+    protected array $matches = [];
 
     /**
-     * @var string
+     * @var string|null
      */
-    protected $timeFormat;
+    protected ?string $timeFormat;
 
     /**
-     * @var \DateTimeZone
+     * @var \DateTimeZone|null
      */
-    protected $timeZone = null;
+    protected ?\DateTimeZone $timeZone = null;
 
     /**
      * Set the entry pattern
@@ -53,7 +53,7 @@ class PatternParser extends Parser
      * @param string $pattern
      * @return $this
      */
-    public function setPattern(string $pattern)
+    public function setPattern(string $pattern): PatternParser
     {
         $this->pattern = $pattern;
         return $this;
@@ -79,7 +79,7 @@ class PatternParser extends Parser
      * @param array $matches
      * @return $this
      */
-    public function setMatches(array $matches)
+    public function setMatches(array $matches): PatternParser
     {
         $this->matches = $matches;
         return $this;
@@ -96,7 +96,7 @@ class PatternParser extends Parser
      * @param string $timeFormat
      * @return $this
      */
-    public function setTimeFormat(string $timeFormat)
+    public function setTimeFormat(string $timeFormat): PatternParser
     {
         $this->timeFormat = $timeFormat;
         return $this;
@@ -110,7 +110,7 @@ class PatternParser extends Parser
      * @param \DateTimeZone $timeZone
      * @return $this
      */
-    public function setTimezone(\DateTimeZone $timeZone)
+    public function setTimezone(\DateTimeZone $timeZone): PatternParser
     {
         $this->timeZone = $timeZone;
         return $this;
@@ -119,7 +119,7 @@ class PatternParser extends Parser
     /**
      * Parse a log from resource to Log object
      */
-    public function parse()
+    public function parse(): void
     {
         foreach ($this->getLogContentAsArray() as $number => $lineString) {
             $line = (new Line())
@@ -160,13 +160,13 @@ class PatternParser extends Parser
      *
      * Overwrite this function to add more different
      * match types and call the parent function (this function)
-     * if you dont know the match type (default in a switch)
+     * if you don't know the match type (default in a switch)
      *
      * @param Entry $entry
      * @param string $matchType One of the match constants
      * @param string $matchString
      */
-    protected function parseEntryMatch(Entry $entry, string $matchType, string $matchString)
+    protected function parseEntryMatch(Entry $entry, string $matchType, string $matchString): void
     {
         switch ($matchType) {
             case static::TIME:

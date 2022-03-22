@@ -16,7 +16,7 @@ class TestNeverDetectableLog extends Log implements DetectableLogInterface
      *
      * @return array
      */
-    public static function getDetectors()
+    public static function getDetectors(): array
     {
         return [(new SinglePatternDetector())->setPattern('/missing/')];
     }

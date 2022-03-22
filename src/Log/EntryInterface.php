@@ -12,10 +12,10 @@ interface EntryInterface extends \Iterator, \Countable, \ArrayAccess
     /**
      * Set all lines at once in an array replacing the current lines
      *
-     * @param array $lines
+     * @param LineInterface[] $lines
      * @return $this
      */
-    public function setLines(array $lines = []);
+    public function setLines(array $lines = []): EntryInterface;
 
     /**
      * Add a line
@@ -23,7 +23,7 @@ interface EntryInterface extends \Iterator, \Countable, \ArrayAccess
      * @param LineInterface $line
      * @return $this
      */
-    public function addLine(LineInterface $line);
+    public function addLine(LineInterface $line): EntryInterface;
 
     /**
      * Get all lines

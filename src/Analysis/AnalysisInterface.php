@@ -12,10 +12,10 @@ interface AnalysisInterface extends \Iterator, \Countable, \ArrayAccess
     /**
      * Set all insights at once in an array replacing the current insights
      *
-     * @param array $insights
+     * @param InsightInterface[] $insights
      * @return $this
      */
-    public function setInsights(array $insights = []);
+    public function setInsights(array $insights = []): AnalysisInterface;
 
     /**
      * Add an insight
@@ -23,7 +23,7 @@ interface AnalysisInterface extends \Iterator, \Countable, \ArrayAccess
      * @param InsightInterface $insight
      * @return $this
      */
-    public function addInsight(InsightInterface $insight);
+    public function addInsight(InsightInterface $insight): AnalysisInterface;
 
     /**
      * Get all insights

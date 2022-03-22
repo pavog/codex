@@ -15,7 +15,7 @@ interface ProblemInterface extends \Iterator, \Countable, \ArrayAccess, InsightI
      * @param array $solutions
      * @return $this
      */
-    public function setSolutions(array $solutions = []);
+    public function setSolutions(array $solutions = []): ProblemInterface;
 
     /**
      * Add a solution
@@ -23,7 +23,7 @@ interface ProblemInterface extends \Iterator, \Countable, \ArrayAccess, InsightI
      * @param SolutionInterface $solution
      * @return $this
      */
-    public function addSolution(SolutionInterface $solution);
+    public function addSolution(SolutionInterface $solution): ProblemInterface;
 
     /**
      * Get all solutions

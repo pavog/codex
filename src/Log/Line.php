@@ -12,12 +12,12 @@ class Line implements LineInterface
     /**
      * @var string
      */
-    protected $text = "";
+    protected string $text = "";
 
     /**
      * @var int
      */
-    protected $number;
+    protected int $number;
 
     /**
      * Set the text of the line
@@ -25,7 +25,7 @@ class Line implements LineInterface
      * @param string $text
      * @return $this
      */
-    public function setText(string $text)
+    public function setText(string $text): Line
     {
         $this->text = $text;
         return $this;
@@ -47,7 +47,7 @@ class Line implements LineInterface
      * @param int $number
      * @return $this
      */
-    public function setNumber(int $number)
+    public function setNumber(int $number): Line
     {
         $this->number = $number;
         return $this;

@@ -12,7 +12,7 @@ abstract class ModifiablePrinter extends Printer implements ModifiablePrinterInt
     /**
      * @var array
      */
-    protected $modifications = [];
+    protected array $modifications = [];
 
     /**
      * Set all modifications replacing the current modifications
@@ -20,7 +20,7 @@ abstract class ModifiablePrinter extends Printer implements ModifiablePrinterInt
      * @param array $modifications
      * @return $this
      */
-    public function setModifications(array $modifications)
+    public function setModifications(array $modifications): ModifiablePrinter
     {
         $this->modifications = [];
         foreach ($modifications as $modification) {
@@ -36,7 +36,7 @@ abstract class ModifiablePrinter extends Printer implements ModifiablePrinterInt
      * @param ModificationInterface $modification
      * @return $this
      */
-    public function addModification(ModificationInterface $modification)
+    public function addModification(ModificationInterface $modification): ModifiablePrinter
     {
         $this->modifications[] = $modification;
         return $this;
@@ -48,7 +48,7 @@ abstract class ModifiablePrinter extends Printer implements ModifiablePrinterInt
      * @param string $text
      * @return string
      */
-    protected function runModifications(string $text)
+    protected function runModifications(string $text): string
     {
         foreach ($this->modifications as $modification) {
             /** @var ModificationInterface $modification */

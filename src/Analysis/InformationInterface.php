@@ -22,7 +22,7 @@ interface InformationInterface extends InsightInterface
      * @param mixed $value
      * @return $this
      */
-    public function setValue($value);
+    public function setValue($value): InformationInterface;
 
     /**
      * Get the information value

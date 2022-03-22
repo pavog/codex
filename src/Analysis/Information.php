@@ -12,10 +12,10 @@ abstract class Information extends Insight implements InformationInterface
     /**
      * @var string
      */
-    protected $label;
+    protected string $label;
 
     /**
-     * @var
+     * @var mixed
      */
     protected $value;
 
@@ -35,7 +35,7 @@ abstract class Information extends Insight implements InformationInterface
      * @param string $label
      * @return Information
      */
-    protected function setLabel(string $label)
+    protected function setLabel(string $label): Information
     {
         $this->label = $label;
         return $this;
@@ -57,7 +57,7 @@ abstract class Information extends Insight implements InformationInterface
      * @param mixed $value
      * @return $this
      */
-    public function setValue($value)
+    public function setValue($value): Information
     {
         $this->value = $value;
         return $this;
@@ -76,11 +76,13 @@ abstract class Information extends Insight implements InformationInterface
     /**
      * Check if the $insight object is equal with the current object
      *
-     * @param static $insight
+     * @param InsightInterface $insight
      * @return bool
      */
-    public function isEqual($insight): bool
+    public function isEqual(InsightInterface $insight): bool
     {
-        return $this->getLabel() === $insight->getLabel() && $this->getValue() === $insight->getValue();
+        return $insight instanceof self
+            && $this->getLabel() === $insight->getLabel()
+            && $this->getValue() === $insight->getValue();
     }
 }

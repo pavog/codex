@@ -10,7 +10,7 @@ use Aternos\Codex\Analysis\PatternInsightInterface;
  */
 class TestPatternInformation extends Information implements PatternInsightInterface
 {
-    protected $label = "Software version";
+    protected string $label = "Software version";
 
     /**
      * Get an array of possible patterns
