@@ -168,7 +168,7 @@ class Analysis implements AnalysisInterface
      */
     public function offsetExists($offset): bool
     {
-        return isset($this->result[$offset]);
+        return isset($this->insights[$offset]);
     }
 
     /**
