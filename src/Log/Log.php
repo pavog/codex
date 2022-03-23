@@ -23,8 +23,6 @@ class Log implements LogInterface
         return new DefaultParser();
     }
 
-    protected array $result;
-
     /**
      * @var EntryInterface[]
      */

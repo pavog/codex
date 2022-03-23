@@ -9,8 +9,6 @@ namespace Aternos\Codex\Log;
  */
 class Entry implements EntryInterface
 {
-    protected array $result;
-
     /**
      * @var LineInterface[]
      */
