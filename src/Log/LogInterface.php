@@ -30,9 +30,9 @@ interface LogInterface extends \Iterator, \Countable, \ArrayAccess
     /**
      * Get the log file
      *
-     * @return LogFileInterface
+     * @return LogFileInterface|null
      */
-    public function getLogFile(): LogFileInterface;
+    public function getLogFile(): ?LogFileInterface;
 
     /**
      * Parse a log file with a parser

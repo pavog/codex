@@ -15,7 +15,10 @@ use Aternos\Codex\Log\LogInterface;
 class Detective implements DetectiveInterface
 {
     /**
-     * @var DetectableLogInterface[]
+     * Classnames as strings.
+     * Must implement DetectableLogInterface.
+     *
+     * @var string[]
      */
     protected array $possibleLogClasses = [];
 

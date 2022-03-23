@@ -24,9 +24,9 @@ class PatternParser extends Parser
     protected string $entryClass = Entry::class;
 
     /**
-     * @var string
+     * @var string|null
      */
-    protected string $pattern;
+    protected ?string $pattern;
 
     /**
      * @var array
@@ -62,9 +62,9 @@ class PatternParser extends Parser
     /**
      * Get the entry pattern
      *
-     * @return string
+     * @return string|null
      */
-    public function getPattern(): string
+    public function getPattern(): ?string
     {
         return $this->pattern;
     }

@@ -34,9 +34,9 @@ class Log implements LogInterface
     protected int $iterator = 0;
 
     /**
-     * @var LogFileInterface $logFile
+     * @var LogFileInterface|null $logFile
      */
-    protected LogFileInterface $logFile;
+    protected ?LogFileInterface $logFile;
 
     /**
      * Set the log file
@@ -53,9 +53,9 @@ class Log implements LogInterface
     /**
      * Get the log file
      *
-     * @return LogFileInterface
+     * @return LogFileInterface|null
      */
-    public function getLogfile(): LogFileInterface
+    public function getLogfile(): ?LogFileInterface
     {
         return $this->logFile;
     }

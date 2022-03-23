@@ -12,9 +12,9 @@ use Aternos\Codex\Log\AnalysableLogInterface;
 abstract class Analyser implements AnalyserInterface
 {
     /**
-     * @var AnalysableLogInterface
+     * @var AnalysableLogInterface|null
      */
-    protected AnalysableLogInterface $log;
+    protected ?AnalysableLogInterface $log;
 
     /**
      * Set the log

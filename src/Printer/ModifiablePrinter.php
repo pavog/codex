@@ -10,7 +10,7 @@ namespace Aternos\Codex\Printer;
 abstract class ModifiablePrinter extends Printer implements ModifiablePrinterInterface
 {
     /**
-     * @var array
+     * @var ModificationInterface[]
      */
     protected array $modifications = [];
 
@@ -51,7 +51,6 @@ abstract class ModifiablePrinter extends Printer implements ModifiablePrinterInt
     protected function runModifications(string $text): string
     {
         foreach ($this->modifications as $modification) {
-            /** @var ModificationInterface $modification */
             $text = $modification->modify($text);
         }
 

@@ -3,7 +3,6 @@
 namespace Aternos\Codex\Analyser;
 
 use Aternos\Codex\Analysis\Analysis;
-use Aternos\Codex\Analysis\AnalysisInterface;
 use Aternos\Codex\Analysis\PatternInsightInterface;
 use Aternos\Codex\Log\EntryInterface;
 
@@ -15,7 +14,10 @@ use Aternos\Codex\Log\EntryInterface;
 class PatternAnalyser extends Analyser
 {
     /**
-     * @var PatternInsightInterface[]
+     * Classnames as strings.
+     * Must implement PatternInsightInterface.
+     *
+     * @var string[]
      */
     protected array $possibleInsightClasses = [];
 
